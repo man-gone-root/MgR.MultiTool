@@ -1,0 +1,1 @@
+This is my first GitHub project. Its goal is to centralize all the little scripts I’ve been using for various purposes and to have a single solution for all my needs. Once a version is complete, I invite you to suggest changes or additions. I hope it will be useful to you, too. 😁
