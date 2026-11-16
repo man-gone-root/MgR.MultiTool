@@ -120,127 +120,132 @@
 
         <!-- Barre latérale MgR -->
         <Border Grid.Column="0"
-                Background="{StaticResource SidebarBrush}"
-                BorderBrush="#303541"
-                BorderThickness="0,0,1,0">
+            Background="{StaticResource SidebarBrush}"
+            BorderBrush="#303541"
+            BorderThickness="0,0,1,0">
 
-            <ScrollViewer VerticalScrollBarVisibility="Auto"
-                          HorizontalScrollBarVisibility="Disabled"
-                          CanContentScroll="False"
-                          PanningMode="VerticalOnly"
-                          IsDeferredScrollingEnabled="False">
-                <ScrollViewer.Resources>
-                    <Style TargetType="{x:Type ScrollBar}"
-                        BasedOn="{StaticResource MgRScrollBar}"/>
-                </ScrollViewer.Resources>
-                <StackPanel Margin="16">
+            <Grid Margin="16">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
 
-                    <!-- Identité MgR -->
-                    <Border Background="{StaticResource AccentBrush}"
-                            CornerRadius="10"
-                            Padding="10"
-                            Margin="0,4,0,22">
-                        <StackPanel>
-                            <TextBlock Text="MgR"
-                                       FontSize="25"
-                                       FontWeight="Bold"
-                                       Foreground="White"/>
-                            <TextBlock Text="MULTI-TOOL"
-                                       FontSize="11"
-                                       Foreground="#E4E1FF"
-                                       FontWeight="SemiBold"/>
-                        </StackPanel>
-                    </Border>
+                <!-- Identité MgR : fixe en haut -->
+                <Border Grid.Row="0"
+                        Background="{StaticResource AccentBrush}"
+                        CornerRadius="10"
+                        Padding="10"
+                        Margin="0,4,0,22">
+                    <StackPanel>
+                        <TextBlock Text="MgR"
+                                   FontSize="25"
+                                   FontWeight="Bold"
+                                   Foreground="White"/>
+                        <TextBlock Text="MULTI-TOOL"
+                                   FontSize="11"
+                                   Foreground="#E4E1FF"
+                                   FontWeight="SemiBold"/>
+                    </StackPanel>
+        </Border>
 
-                    <!-- Accueil : bouton indépendant -->
-                    <Button Content="⌂   Accueil"
-                            Style="{StaticResource NavButton}"
-                            Click="Home_Click"
-                            Margin="0,0,0,12"/>
+        <!-- Accueil : bouton indépendant -->
+                <Button Grid.Row="1"
+                Content="⌂   Accueil"
+                Style="{StaticResource NavButton}"
+                Click="Home_Click"
+                Margin="0,0,0,12"/>
 
-                    <!-- Windows -->
-                    <Expander IsExpanded="True"
-                              Foreground="{StaticResource MutedBrush}"
-                              Margin="0,0,0,8">
-                        <Expander.Header>
-                            <TextBlock Text="WINDOWS"
-                                       FontSize="11"
-                                       FontWeight="SemiBold"/>
-                        </Expander.Header>
+                <!-- Navigation : seule cette zone défile -->
+        <ScrollViewer Grid.Row="2"
+                      VerticalScrollBarVisibility="Auto"
+                      HorizontalScrollBarVisibility="Disabled"
+                      CanContentScroll="False"
+                      PanningMode="VerticalOnly"
+                      IsDeferredScrollingEnabled="False">
 
-                        <StackPanel Margin="0,6,0,0">
-                            <Button Content="▦   Applications"
-                                    Style="{StaticResource NavButton}"
-                                    Click="Applications_Click"/>
+            <ScrollViewer.Resources>
+                <Style TargetType="{x:Type ScrollBar}"
+                       BasedOn="{StaticResource MgRScrollBar}"/>
+            </ScrollViewer.Resources>
 
-                            <Button Content="◈   Confidentialité"
-                                    Style="{StaticResource NavButton}"
-                                    Click="Privacy_Click"/>
 
-                            <Button Content="◇   Sécurité"
-                                    Style="{StaticResource NavButton}"
-                                    Click="Security_Click"/>
+                    <StackPanel>
 
-                            <Button Content="⚙   Optimisation"
-                                    Style="{StaticResource NavButton}"
-                                    Click="Optimization_Click"/>
+                        <!-- Utilitaires -->
+                        <Expander IsExpanded="True"
+                            Foreground="{StaticResource MutedBrush}"
+                            Margin="0,0,0,8">
 
-                            <Button Content="▤   Fichiers"
-                                    Style="{StaticResource NavButton}"
-                                    Click="Files_Click"/>
+                            <Expander.Header>
+                                <TextBlock Text="UTILITAIRES"
+                                FontSize="11"
+                                FontWeight="SemiBold"/>
+                            </Expander.Header>
 
-                            <Button Content="⌑   Permissions"
-                                    Style="{StaticResource NavButton}"
-                                    Click="Permissions_Click"/>
-                        </StackPanel>
-                    </Expander>
+                            <StackPanel Margin="0,6,0,0">
 
-                    <!-- Utilitaires -->
-                    <Expander IsExpanded="True"
-                              Foreground="{StaticResource MutedBrush}"
-                              Margin="0,0,0,8">
-                        <Expander.Header>
-                            <TextBlock Text="UTILITAIRES"
-                                       FontSize="11"
-                                       FontWeight="SemiBold"/>
-                        </Expander.Header>
-
-                        <StackPanel Margin="0,6,0,0">
-                            <Button Content="⇄   Convertisseurs"
+                                <!-- Convertisseurs -->
+                                <Button Content="⇄   Convertisseurs"
                                     Style="{StaticResource NavButton}"
                                     Click="Converters_Click"/>
 
-                            <Button Content="⌕   Ressources binaires"
+                                <!-- Ressources binaires -->
+                                <Button Content="⌕   Ressources binaires"
                                     Style="{StaticResource NavButton}"
                                     Click="Binary_Click"/>
 
-                            <Button Content="▣   OnePack"
+                                <!-- OnePack -->
+                                <Button Content="▣   OnePack"
                                     Style="{StaticResource NavButton}"
                                     Click="OnePack_Click"/>
-                        </StackPanel>
-                    </Expander>
 
-                    <!-- Séparateur avant les options de l'application -->
-                    <Separator Background="#353A46"
-           Margin="0,12,0,10"/>
+                                <!-- Fichiers -->
+                                <Button Content="▤   Fichiers"
+                                    Style="{StaticResource NavButton}"
+                                    Click="Files_Click"/>
 
-                    <!-- Historique : bouton indépendant -->
-                    <Button Content="◷   Historique"
-                            Style="{StaticResource NavButton}"
-                            Click="History_Click"/>
+                                <!-- Permissions -->
+                                <Button Content="⌑   Permissions"
+                                    Style="{StaticResource NavButton}"
+                                    Click="Permissions_Click"/>
 
-                    <!-- Paramètres : bouton indépendant -->
-                    <Button Content="⚙   Paramètres"
-                            Style="{StaticResource NavButton}"
-                            Click="Settings_Click"/>
+                            </StackPanel>
+                        </Expander>
 
-                    <TextBlock Text="BETA 0.1.0"
-                               Foreground="{StaticResource MutedBrush}"
-                               FontSize="11"
-                               Margin="8,14,0,8"/>
+                    </StackPanel>
 
-                </StackPanel>
-            </ScrollViewer>
+                </ScrollViewer>
+
+                <!-- Séparateur avant les options de l'application -->
+                <Separator Grid.Row="3"
+                           Background="#353A46"
+                           Margin="0,12,0,10"/>
+
+                <!-- Historique : bouton indépendant -->
+                <Button Grid.Row="4"
+                        Content="◷   Historique"
+                        Style="{StaticResource NavButton}"
+                        Click="History_Click"/>
+
+                <!-- Paramètres : bouton indépendant -->
+                <Button Grid.Row="5"
+                        Content="⚙   Paramètres"
+                        Style="{StaticResource NavButton}"
+                        Click="Settings_Click"/>
+
+                <!-- Version : fixe en bas -->
+                <TextBlock Grid.Row="6"
+                           Text="BETA 0.1.1"
+                           Foreground="{StaticResource MutedBrush}"
+                           FontSize="11"
+                           Margin="8,12,0,2"
+                           VerticalAlignment="Bottom"/>
+            </Grid>
         </Border>
 
         <!-- Contenu principal -->

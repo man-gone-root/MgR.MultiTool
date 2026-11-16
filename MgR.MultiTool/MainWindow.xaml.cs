@@ -80,35 +80,47 @@ namespace MgR.MultiTool
             };
         }
 
+
         private void ShowHome()
         {
             var content = CreatePageContent();
 
             content.Children.Add(CreateCard(
-                "Windows",
-                "Gère les paramètres, les applications et les fichiers.",
-                "6 catégories prévues"));
+                "Convertisseurs",
+                "Conversion entre différents formats d'images, audio et vidéo, ainsi que vidéo vers audio.",
+                "Module prévu"));
 
             content.Children.Add(CreateCard(
-                "Programmes utilitaires",
-                "Convertis des fichiers et utilise des outils spécialisés.",
-                "3 outils prévus"));
+                "Ressources binaires",
+                "Exploration et extraction des ressources intégrées dans des fichiers exécutables.",
+                "Module prévu"));
 
             content.Children.Add(CreateCard(
-                "Historique des opérations",
-                "Retrouve les actions effectuées par MgR multi-tool.",
-                "En préparation"));
+                "OnePack",
+                "Module intégré au projet MgR multi-tool. Ses fonctionnalités seront définies ultérieurement.",
+                "Fonctionnalités à définir"));
+
+            content.Children.Add(CreateCard(
+                "Fichiers",
+                "Recherche de dossiers vides, affichage en arborescence et sélection avant suppression.",
+                "Module prévu"));
+
+            content.Children.Add(CreateCard(
+                "Permissions",
+                "Consultation et gestion des permissions NTFS, avec prise en charge des modifications récursives.",
+                "Module prévu"));
 
             content.Children.Add(CreateCard(
                 "État du projet",
-                "L'interface principale est en cours de construction.",
-                "Beta 0.1.0"));
+                "MgR multi-tool est actuellement en cours de développement. Les différents modules sont progressivement intégrés à l'application.",
+                "BETA 0.1.0"));
 
             ShowPage(
                 "Bienvenue sur MgR multi-tool",
-                "Tes outils Windows et utilitaires réunis dans une seule application.",
+                "Une boîte à outils regroupant plusieurs utilitaires au sein d'une seule application.",
                 content);
         }
+
 
         private void ShowPlaceholder(
             string title,
@@ -130,36 +142,12 @@ namespace MgR.MultiTool
             ShowHome();
         }
 
-        private void Applications_Click(object sender, RoutedEventArgs e)
-        {
-            ShowPlaceholder(
-                "Applications Windows",
-                "Gestion des applications installées.",
-                "À terme : inventaire, informations sur les applications et désinstallation contrôlée.");
-        }
-
         private void Privacy_Click(object sender, RoutedEventArgs e)
         {
             ShowPlaceholder(
                 "Confidentialité",
                 "Paramètres de confidentialité et de télémétrie.",
                 "À terme : consulter les paramètres disponibles et expliquer leurs conséquences avant toute modification.");
-        }
-
-        private void Security_Click(object sender, RoutedEventArgs e)
-        {
-            ShowPlaceholder(
-                "Sécurité Windows",
-                "Consultation des paramètres de sécurité.",
-                "Les fonctionnalités futures devront préserver les protections de Windows.");
-        }
-
-        private void Optimization_Click(object sender, RoutedEventArgs e)
-        {
-            ShowPlaceholder(
-                "Personnalisation et optimisation",
-                "Paramètres et possibilités d'optimisation.",
-                "Les modifications seront documentées et contrôlées.");
         }
 
         private void Files_Click(object sender, RoutedEventArgs e)
